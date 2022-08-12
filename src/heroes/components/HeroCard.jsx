@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 export const HeroCard = ({id ,superhero ,publisher ,alter_ego ,first_appearance ,characters}) => {
 
@@ -6,7 +7,7 @@ export const HeroCard = ({id ,superhero ,publisher ,alter_ego ,first_appearance 
     <div className="col">
         <div className="card">
             <div className="row no-gutters">
-                <div className="col-4">
+                <div className="col-4 animate__animated animate__bounce" >
                     <img src={imageUrl} className="card-img" alt={"superhero"}/>
                 </div>
                 <div className="col-8">
@@ -19,11 +20,19 @@ export const HeroCard = ({id ,superhero ,publisher ,alter_ego ,first_appearance 
                         alter_ego
                       }
                       </p>
+                     
+                      {
+                        (alter_ego !==characters) && (<p>{characters}</p>)
+                      }
                       <p className="card-text">
-                          {
-                            characters
-                          }
+                        <small className="text-muted">
+                          {first_appearance}
+                        </small>
+
                       </p>
+                     
+                      <Link to={`/hero/${id}`}> Mas...</Link>
+
                     
                   </div>
                 </div>
