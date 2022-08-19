@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { AuthContext } from '../context/AuthContext';
 
 export const Login = () => {
+
+   const {login} = useContext(AuthContext)
   const navigate = useNavigate();
+ 
+
   const hadleLogin = ()=>{
-     navigate('/', {replace: true})
-
-
+    login( "Andres Sanchez")
+    navigate('/', {replace: true})
   }
+
   return (
    
     <div className='container m-5'>
